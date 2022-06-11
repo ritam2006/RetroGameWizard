@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: #363636;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.popup {
+    width: 16rem;
+    height: 12rem;
+    padding: 2rem;
+}
+
+.title {
+    text-align: center;
+}
+
+.choose-game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: fit-content;
+}
+
+#choose-game-prompt {
+    font-size: 0.75rem;
+}
+
+.game-list {
+    list-style: none;
+    margin: 1rem;
+}
+
+.game-button {
+    font-size: 0.6rem;
+    padding: 0.15rem;
+    border: 0.15rem solid white;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease;
+}
+
+.game-button:hover {
+    background-color: #666666;
+    cursor: pointer;
+}
+
+.credits {
+    font-size: 0.5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+}
