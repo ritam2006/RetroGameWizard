@@ -10,18 +10,21 @@
     width: 16rem;
     height: 12rem;
     padding: 2rem;
+    padding-bottom: 0;
+    text-align: center;
 }
 
-.title {
-    text-align: center;
+.container {
+    height: 100%;
+    width: 100%;
+    position: relative;
 }
 
 .choose-game {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
     width: fit-content;
 }
 
@@ -34,7 +37,8 @@
     margin: 1rem;
 }
 
-.game-button {
+.game-link {
+    text-decoration: none;
     font-size: 0.6rem;
     padding: 0.15rem;
     border: 0.15rem solid white;
@@ -42,7 +46,7 @@
     transition: background-color 0.3s ease;
 }
 
-.game-button:hover {
+.game-link:hover {
     background-color: #666666;
     cursor: pointer;
 }
