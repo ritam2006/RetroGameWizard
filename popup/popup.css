@@ -6,12 +6,11 @@
     font-family: 'Press Start 2P', cursive;
 }
 
-.popup {
-    width: 16rem;
-    height: 12rem;
-    padding: 2rem;
-    padding-bottom: 0;
+body {
+    width: 320px;
+    height: 256px;
     text-align: center;
+    margin: 1rem;
 }
 
 .container {

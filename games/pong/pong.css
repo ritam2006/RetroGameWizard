@@ -1,0 +1,22 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: #363636;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    width: 320px;
+    height: 256px;
+    text-align: center;
+    margin: 1rem;
+}
+.score {
+    margin: 1rem;
+}
+
+.arena {
+    border: 0.25rem solid white;
+    width: 100%;
+}
