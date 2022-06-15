@@ -1,4 +1,4 @@
-import Ball from './ball.js';
+import Ball from './components/ball.js';
 
 const ball = new Ball(document.querySelector('.ball'));
 
