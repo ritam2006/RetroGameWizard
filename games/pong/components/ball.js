@@ -2,9 +2,9 @@ const INITIAL_VELOCITY = 0.025;
 const VELOCITY_INCREASE = 0.00001;
 
 export default class Ball {
-    constructor(ballElement) {
+    constructor(ballElement, arena) {
         this.ballElement = ballElement;
-        this.arena = ballElement.parentNode;
+        this.arena = arena;
         this.reset();
     }
 
@@ -47,7 +47,6 @@ export default class Ball {
         this.velocity += VELOCITY_INCREASE * delta;
 
         const rect = this.rect();
-        const arena = this.ballElement.parentNode;
 
         if (rect.bottom >= this.arena.getBoundingClientRect().bottom || 
             rect.top <= this.arena.getBoundingClientRect().top) {
