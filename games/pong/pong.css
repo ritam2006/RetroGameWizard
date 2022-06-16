@@ -39,11 +39,11 @@ body {
 }
 
 .paddle.left {
-    left: 2%;
+    left: 5%;
 }
 
 .paddle.right {
-    right: 2%;
+    right: 5%;
 }
 
 .ball {

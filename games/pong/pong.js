@@ -13,7 +13,7 @@ let lastTime = 0;
 function update(time) {
     if (lastTime != null) {
         const delta = time - lastTime;
-        const victor = ball.update(delta);
+        const victor = ball.update(delta, playerPaddle.rect(), computerPaddle.rect());
         computerPaddle.computerUpdate(delta, ball.y);
 
         // When player wins...

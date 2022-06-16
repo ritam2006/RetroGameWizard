@@ -20,6 +20,10 @@ export default class Paddle {
         this.position = 50;
     }
 
+    rect() {
+        return this.paddleElement.getBoundingClientRect();
+    }
+
     playerUpdate(e) {
         if (e.y >= this.arena.getBoundingClientRect().bottom || e.y <= this.arena.getBoundingClientRect().top ||
             e.x >= this.arena.getBoundingClientRect().right || e.x <= this.arena.getBoundingClientRect().left) {
