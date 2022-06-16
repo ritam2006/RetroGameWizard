@@ -53,10 +53,17 @@ export default class Ball {
             this.direction.y *= -1;
         }
 
-        if (rect.right >= this.arena.getBoundingClientRect().right || 
-            rect.left <= this.arena.getBoundingClientRect().left) {
-            this.direction.x *= -1;
+        // When player wins...
+        if (rect.right >= this.arena.getBoundingClientRect().right) {
+            return 1;
         }
+
+        // When computer wins...
+        else if (rect.left <= this.arena.getBoundingClientRect().left) {
+            return 2;
+        }
+
+        return 0;
     }
 }
 

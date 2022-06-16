@@ -3,14 +3,32 @@ import Paddle from './components/paddle.js';
 
 const arena = document.querySelector('.arena');
 const ball = new Ball(document.querySelector('.ball'), arena);
-const playerPaddle = new Paddle(document.getElementById('player-paddle'));
-const computerPaddle = new Paddle(document.getElementById('computer-paddle'));
+const playerPaddle = new Paddle(document.getElementById('player-paddle'), arena);
+const computerPaddle = new Paddle(document.getElementById('computer-paddle'), arena);
+
+const playerScore = document.getElementById('player-score');
+const computerScore = document.getElementById('computer-score');
 
 let lastTime = 0;
 function update(time) {
     if (lastTime != null) {
         const delta = time - lastTime;
-        ball.update(delta);
+        const victor = ball.update(delta);
+        computerPaddle.computerUpdate(delta, ball.y);
+
+        // When player wins...
+        if (victor === 1) {
+            ball.reset();
+            computerPaddle.reset();
+            playerScore.textContent = parseInt(playerScore.textContent) + 1;
+        }
+
+        // When computer wins...
+        else if (victor === 2) {
+            ball.reset();
+            computerPaddle.reset();
+            computerScore.textContent = parseInt(computerScore.textContent) + 1;
+        }
     }
 
     lastTime = time
@@ -18,22 +36,7 @@ function update(time) {
 }
 
 document.addEventListener('mousemove', e => {
-    if (e.y >= arena.getBoundingClientRect().bottom || e.y <= arena.getBoundingClientRect().top ||
-        e.x >= arena.getBoundingClientRect().right || e.x <= arena.getBoundingClientRect().left) {
-        return;
-    }
-
-    const newPosition = e.y - arena.getBoundingClientRect().top;
-    if (checkOutOfBounds(newPosition)) {
-        return;
-    }
-
-    playerPaddle.position = (newPosition / arena.clientHeight) * 100;
+    playerPaddle.playerUpdate(e);
 });
-
-function checkOutOfBounds(positionY) {
-    return positionY + playerPaddle.height * 0.5 >= arena.clientHeight ||
-        positionY - playerPaddle.height * 0.5 <= 0;
-}
 
 window.requestAnimationFrame(update);
