@@ -33,7 +33,8 @@ export default class Ball {
         this.y = 50;
         this.direction = { x: 0, y: 0 };
 
-        while (Math.abs(this.direction.x) <= 0.1 || Math.abs(this.direction.x) >= 0.9) {
+        while (Math.abs(this.direction.x) <= 0.1 || Math.abs(this.direction.x) >= 0.9 ||
+            Math.abs(this.direction.y) <= 0.1 || Math.abs(this.direction.y) >= 0.9) {
             const vector = randomNumberBetween(0, 2 * Math.PI);
             this.direction = { x: Math.cos(vector), y: Math.sin(vector) }
         }
@@ -59,15 +60,13 @@ export default class Ball {
 
         // When player wins...
         if (rect.right >= this.arena.getBoundingClientRect().right) {
-            return 1;
+            return 0;
         }
 
         // When computer wins...
         else if (rect.left <= this.arena.getBoundingClientRect().left) {
-            return 2;
+            return 1;
         }
-
-        return 0;
     }
 }
 
