@@ -24,14 +24,14 @@ function update(time) {
         computerPaddle.computerUpdate(delta, ball.y);
 
         // When player wins...
-        if (victor === 1) {
+        if (victor === 0) {
             ball.reset();
             computerPaddle.reset();
             playerScore.textContent = parseInt(playerScore.textContent) + 1;
         }
 
         // When computer wins...
-        else if (victor === 2) {
+        else if (victor === 1) {
             ball.reset();
             computerPaddle.reset();
             computerScore.textContent = parseInt(computerScore.textContent) + 1;
@@ -51,20 +51,35 @@ document.addEventListener('mousemove', e => {
 let startTime;
 let endTime;
 
-pause.addEventListener('click', () =>  {
+pause.addEventListener('click', pauseGame);
+play.addEventListener('click', unpauseGame);
+
+function pauseGame() {
     isPaused = true;
     startTime = new Date();
     options.removeChild(pause);
     options.appendChild(play);
-});
+}
 
-play.addEventListener('click', () => {
+function unpauseGame() {
     isPaused = false;
     endTime = new Date();
     lastTime += endTime - startTime;
     options.removeChild(play);
     options.appendChild(pause);
     window.requestAnimationFrame(update);
+}
+
+window.addEventListener('keydown', e => {
+    if (e.key === ' ') {
+        if (isPaused) {
+            unpauseGame();
+        }
+
+        else {
+            pauseGame();
+        }
+    }
 });
 
 window.requestAnimationFrame(update);
