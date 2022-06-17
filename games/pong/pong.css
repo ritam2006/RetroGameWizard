@@ -27,6 +27,28 @@ body {
     position: relative;
 }
 
+.division {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 4px dashed white;
+    height: 100%;
+    width: 0%;
+}
+
+.ball {
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: white;
+    width: 8px;
+    height: 8px;
+    left: calc(var(--x) * 1%);
+    top: calc(var(--y) * 1%);
+    transform: translate(-50%, -50%);
+}
+
 .paddle {
     --position: 50;
 
@@ -44,18 +66,4 @@ body {
 
 .paddle.right {
     right: 5%;
-}
-
-.ball {
-    --x: 50;
-    --y: 50;
-
-    position: absolute;
-    background-color: white;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    left: calc(var(--x) * 1%);
-    top: calc(var(--y) * 1%);
-    transform: translate(-50%, -50%);
 }
