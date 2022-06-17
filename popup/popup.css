@@ -37,12 +37,19 @@ body {
 }
 
 .game-link {
-    text-decoration: none;
+    display: flex;
+    justify-content: center;
     font-size: 0.6rem;
     padding: 0.15rem;
-    border: 0.15rem solid white;
-    border-radius: 0.25rem;
-    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.game-link > a {
+    text-decoration: none;
+}
+
+#caret {
+    margin-right: 0.5rem;
 }
 
 .credits {

@@ -3,7 +3,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/fontawesome/css/solid.css">
+    <link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
 </head>
 <body>
     <div class="popup">
@@ -12,7 +15,10 @@
             <div class="choose-game">
                 <h2 id="choose-game-prompt">Choose a game...</h2>
                 <ul class="game-list">
-                    <li><a href="/games/pong/pong.html" class="game-link">Pong</a></li>
+                    <li class="game-link">
+                        <i id="caret" class="fa-solid fa-caret-right"></i>
+                        <a href="/games/pong/pong.html">Pong</a>
+                    </li>
                 </ul>
             </div>
         <footer class="credits">Developed by Ritam Chakraborty</footer>
