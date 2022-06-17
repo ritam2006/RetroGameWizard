@@ -45,11 +45,6 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.game-link:hover {
-    background-color: #666666;
-    cursor: pointer;
-}
-
 .credits {
     font-size: 0.5rem;
     position: fixed;
