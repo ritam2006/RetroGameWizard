@@ -14,6 +14,27 @@ body {
     margin: 1rem;
 }
 
+.controls {
+    font-size: 1.5rem;
+    position: fixed;
+    padding-top: 0.5rem;
+    top: 0;
+}
+
+.fa-arrow-left {
+    position: fixed;
+    left: 0;
+    margin-left: 0.5rem;
+}
+
+.options {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
 .score {
     margin: 1rem;
     display: flex;
@@ -44,6 +65,7 @@ body {
     background-color: white;
     width: 8px;
     height: 8px;
+    border-radius: 50%;
     left: calc(var(--x) * 1%);
     top: calc(var(--y) * 1%);
     transform: translate(-50%, -50%);

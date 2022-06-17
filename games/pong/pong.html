@@ -3,10 +3,19 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/fontawesome/css/solid.css">
+        <link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css">
         <link rel="stylesheet" href="pong.css">
+        <script type="module" src="pong.js" defer></script>
     </head>
     <body>
         <div class="pong">
+            <header class="controls">
+                <a href="/popup/popup.html"><i class="fa-solid fa-arrow-left"></i></a>
+                <div class="options">
+                    <i class="fa-solid fa-pause"></i>
+                </div>
+            </header>
             <h1>Pong</h1>
             <div class="score">
                 <div id="player-score">0</div>
@@ -20,6 +29,5 @@
                 <div class="paddle right" id="computer-paddle"></div>
             </div>
         </div>
-        <script type="module" src="pong.js"></script>
     </body>
 </html>
