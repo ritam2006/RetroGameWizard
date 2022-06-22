@@ -16,7 +16,7 @@ body {
 }
 
 .arena {
-    border: 2px solid white;
+    border: 2.5px solid white;
     margin-top: 1rem; 
     height: calc(256px - 1.5rem - 1rem);
 }
