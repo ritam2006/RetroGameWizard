@@ -20,7 +20,7 @@ let lastTime = 0;
 function update(time) {
     if (lastTime != null && !isPaused) {
         const delta = time - lastTime;
-        const victor = ball.update(delta, playerPaddle.rect(), computerPaddle.rect());
+        const victor = ball.update(delta, playerPaddle, computerPaddle, arena.clientHeight);
         computerPaddle.computerUpdate(delta, ball.y);
 
         // When player wins...
@@ -42,7 +42,7 @@ function update(time) {
     window.requestAnimationFrame(update);
 }
 
-document.addEventListener('mousemove', e => {
+arena.addEventListener('mousemove', e => {
     if (!isPaused) playerPaddle.playerUpdate(e);
 });
 

@@ -42,24 +42,39 @@ export default class Ball {
         this.velocity = INITIAL_VELOCITY;
     }
 
-    update(delta, playerPaddleRect, computerPaddleRect) {
+    update(delta, playerPaddle, computerPaddle, arenaHeight) {
         this.x += this.direction.x * this.velocity * delta;
         this.y += this.direction.y * this.velocity * delta;
         this.velocity += VELOCITY_INCREASE * delta;
 
         const rect = this.rect();
+        const playerPaddleRect = playerPaddle.rect();
+        const computerPaddleRect = computerPaddle.rect();
 
-        if (rect.bottom >= this.arena.getBoundingClientRect().bottom || 
-            rect.top <= this.arena.getBoundingClientRect().top) {
-            this.direction.y *= -1;
+        if (rect.bottom >= this.arena.getBoundingClientRect().bottom) {
+            console.log(this.direction.y);
+            this.direction.y = -Math.abs(this.direction.y);
+        }
+
+        else if (rect.top <= this.arena.getBoundingClientRect().top) {
+            console.log(this.direction.y);
+            this.direction.y = Math.abs(this.direction.y);
         }
 
         if (isCollision(rect, playerPaddleRect)) {
-            this.direction.x = Math.abs(this.direction.x);
+            let collisionPoint = this.y - (playerPaddle.position);
+            collisionPoint /= (playerPaddle.height / 2);
+            const vector = collisionPoint * Math.PI / 4 * arenaHeight / 100;
+            this.direction.x = Math.cos(vector);
+            this.direction.y = Math.sin(vector);
         }
 
         if (isCollision(rect, computerPaddleRect)) {
-            this.direction.x = -Math.abs(this.direction.x);
+            let collisionPoint = this.y - (computerPaddle.position);
+            collisionPoint /= (computerPaddle.height / 2);
+            const vector = collisionPoint * Math.PI / 4 * arenaHeight / 100;
+            this.direction.x = -Math.cos(vector);
+            this.direction.y = Math.sin(vector);
         }
 
         // When player wins...

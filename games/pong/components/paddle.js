@@ -1,4 +1,4 @@
-const SPEED = 0.01;
+const SPEED = 0.015;
 
 export default class Paddle {
     constructor(paddleElement, arena) {
@@ -25,11 +25,6 @@ export default class Paddle {
     }
 
     playerUpdate(e) {
-        if (e.y >= this.arena.getBoundingClientRect().bottom || e.y <= this.arena.getBoundingClientRect().top ||
-            e.x >= this.arena.getBoundingClientRect().right || e.x <= this.arena.getBoundingClientRect().left) {
-            return;
-        }
-
         if (this.checkOutOfBounds(e.offsetY)) {
             return;
         }
