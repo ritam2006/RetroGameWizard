@@ -43,8 +43,8 @@ body {
 }
 
 .arena {
-    border: 2px solid white;
-    height: 178px;
+    border: 4px solid white;
+    height: calc(256px - 5rem);
     position: relative;
 }
 
