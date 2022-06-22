@@ -5,6 +5,7 @@
     color: white;
     font-family: 'Press Start 2P', cursive;
     font-smooth: never;
+    box-sizing: border-box;
 }
 
 body {
@@ -43,8 +44,8 @@ body {
 }
 
 .arena {
-    border: 4px solid white;
-    height: calc(256px - 5rem);
+    border: 2px solid white;
+    height: calc(256px - 1.5rem - 3rem);
     position: relative;
 }
 
