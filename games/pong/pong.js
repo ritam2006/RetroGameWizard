@@ -18,7 +18,7 @@ const computerScore = document.getElementById('computer-score');
 
 let lastTime = 0;
 function update(time) {
-    if (lastTime != null) {
+    if (lastTime != null && !isPaused) {
         const delta = time - lastTime;
         const victor = ball.update(delta, playerPaddle.rect(), computerPaddle.rect());
         computerPaddle.computerUpdate(delta, ball.y);
@@ -39,46 +39,31 @@ function update(time) {
     }
 
     lastTime = time
-    if (!isPaused) {
-        window.requestAnimationFrame(update);
-    } 
+    window.requestAnimationFrame(update);
 }
 
 document.addEventListener('mousemove', e => {
-    playerPaddle.playerUpdate(e);
+    if (!isPaused) playerPaddle.playerUpdate(e);
 });
-
-let startTime;
-let endTime;
 
 pause.addEventListener('click', pauseGame);
 play.addEventListener('click', unpauseGame);
 
 function pauseGame() {
     isPaused = true;
-    startTime = new Date();
     options.removeChild(pause);
     options.appendChild(play);
 }
 
 function unpauseGame() {
     isPaused = false;
-    endTime = new Date();
-    lastTime += endTime - startTime;
     options.removeChild(play);
     options.appendChild(pause);
-    window.requestAnimationFrame(update);
 }
 
 window.addEventListener('keydown', e => {
     if (e.key === ' ') {
-        if (isPaused) {
-            unpauseGame();
-        }
-
-        else {
-            pauseGame();
-        }
+        isPaused ? unpauseGame() : pauseGame();
     }
 });
 
