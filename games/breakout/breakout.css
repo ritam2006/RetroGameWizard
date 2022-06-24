@@ -16,6 +16,50 @@ body {
 
 .arena {
     border: 2.5px solid white;
-    margin-top: 1rem; 
+    margin-top: 1rem;
+    padding: 0.25rem;
     height: calc(256px - 1.5rem - 1rem);
+    position: relative;
+}
+
+.wrapper {
+    margin-top: 1rem;
+    --columns: 8;
+
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 0.25rem;
+    width: 100%;
+}
+
+.block {
+    height: 0.5rem;
+    width: 100%;
+    background-color: white;
+}
+
+.paddle {
+    --position: 50;
+
+    position: absolute;
+    height: 2%;
+    width: 16%;
+    bottom: 10%;
+    left: calc(var(--position) * 1%);
+    transform: translateX(-50%);
+    background-color: white;
+}
+
+.ball {
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: white;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    left: calc(var(--x) * 1%);
+    top: calc(var(--y) * 1%);
+    transform: translate(-50%, -50%);
 }
