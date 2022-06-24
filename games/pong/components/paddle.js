@@ -25,7 +25,7 @@ export default class Paddle {
     }
 
     playerUpdate(e) {
-        if (this.checkOutOfBounds(e.offsetY)) {
+        if (this.outOfBounds(e.offsetY)) {
             return;
         }
 
@@ -33,15 +33,17 @@ export default class Paddle {
     }
 
     computerUpdate(delta, ballHeight) {
-        if (this.checkOutOfBounds((ballHeight / 100) * this.arena.clientHeight)) {
+        if (this.outOfBounds((ballHeight / 100) * this.arena.clientHeight)) {
             return;
         }
 
         this.position += SPEED * delta * (ballHeight - this.position);
     }
 
-    checkOutOfBounds(positionY) {
-        return positionY + this.height * 0.5 >= this.arena.clientHeight ||
-            positionY - this.height * 0.5 <= 0;
+    outOfBounds(positionY) {
+        return (
+            positionY - this.height / 2 < 0 ||
+            positionY + this.height / 2 > this.arena.clientHeight
+        );
     }
 }

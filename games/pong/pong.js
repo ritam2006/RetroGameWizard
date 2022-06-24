@@ -18,9 +18,9 @@ const computerScore = document.getElementById('computer-score');
 
 let lastTime = 0;
 function update(time) {
-    if (lastTime != null && !isPaused) {
+    if (lastTime != 0 && !isPaused) {
         const delta = time - lastTime;
-        const victor = ball.update(delta, playerPaddle, computerPaddle, arena.clientHeight);
+        const victor = ball.update(delta, playerPaddle, computerPaddle);
         computerPaddle.computerUpdate(delta, ball.y);
 
         // When player wins...

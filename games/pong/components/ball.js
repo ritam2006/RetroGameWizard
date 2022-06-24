@@ -42,7 +42,7 @@ export default class Ball {
         this.velocity = INITIAL_VELOCITY;
     }
 
-    update(delta, playerPaddle, computerPaddle, arenaHeight) {
+    update(delta, playerPaddle, computerPaddle) {
         this.x += this.direction.x * this.velocity * delta;
         this.y += this.direction.y * this.velocity * delta;
         this.velocity += VELOCITY_INCREASE * delta;
@@ -62,17 +62,17 @@ export default class Ball {
         }
 
         if (isCollision(rect, playerPaddleRect)) {
-            let collisionPoint = this.y - (playerPaddle.position);
+            let collisionPoint = this.arena.clientHeight / 100 * (this.y - playerPaddle.position);
             collisionPoint /= (playerPaddle.height / 2);
-            const vector = collisionPoint * Math.PI / 4 * arenaHeight / 100;
+            const vector = collisionPoint * Math.PI / 4 ;
             this.direction.x = Math.cos(vector);
             this.direction.y = Math.sin(vector);
         }
 
         if (isCollision(rect, computerPaddleRect)) {
-            let collisionPoint = this.y - (computerPaddle.position);
+            let collisionPoint = this.arena.clientHeight / 100 * (this.y - computerPaddle.position);
             collisionPoint /= (computerPaddle.height / 2);
-            const vector = collisionPoint * Math.PI / 4 * arenaHeight / 100;
+            const vector = collisionPoint * Math.PI / 4;
             this.direction.x = -Math.cos(vector);
             this.direction.y = Math.sin(vector);
         }
