@@ -54,7 +54,7 @@ export default class Ball {
         }
 
         else if (rect.bottom >= this.arena.getBoundingClientRect().bottom) {
-            return "lost";
+            return 'lost';
         }
 
         if (isCollision(rect, paddle.rect())) {
@@ -68,10 +68,20 @@ export default class Ball {
         for (let i = 0; i < activeBlocks.length; i++) {
             const block = activeBlocks[i];
             if (isCollision(rect, block.rect())) {
-                this.direction.x *= -1;
-                this.direction.y *= -1;
+                let collisionPoint = (this.arena.clientWidth / 100) * this.x - block.position;
+                collisionPoint /= (block.width / 2);
+                let vector;
+                this.direction.y > 0 ? 
+                    vector = (collisionPoint * Math.PI / 4) - Math.PI / 2 :
+                    vector = -(collisionPoint * Math.PI / 4) + Math.PI / 2;
+                this.direction.x = Math.cos(vector);
+                this.direction.y = Math.sin(vector);
                 activeBlocks.splice(i, 1)
                 block.blockElement.style.visibility = 'hidden';
+
+                if (activeBlocks.length == 0) {
+                    return 'win';
+                }
             }
         }
     }

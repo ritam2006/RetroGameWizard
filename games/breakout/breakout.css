@@ -14,6 +14,27 @@ body {
     margin: 1rem;
 }
 
+.controls {
+    font-size: 1.5rem;
+    position: fixed;
+    padding-top: 0.5rem;
+    top: 0;
+}
+
+.fa-arrow-left {
+    position: fixed;
+    left: 0;
+    margin-left: 0.5rem;
+}
+
+.options {
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
 .arena {
     border: 2.5px solid white;
     margin-top: 1rem;
@@ -23,7 +44,7 @@ body {
 }
 
 .wrapper {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     --columns: 8;
 
     display: grid;
@@ -33,7 +54,7 @@ body {
 }
 
 .block {
-    height: 0.5rem;
+    height: 0.75rem;
     width: 100%;
     background-color: white;
 }
