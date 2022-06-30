@@ -1,9 +1,15 @@
 {
-    "name": "Game Wizard",
+    "name": "RetroGameWizard",
     "description": "Play games in class without getting caught!",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
-        "default_popup": "popup/popup.html"
+        "default_popup": "popup/popup.html",
+        "default_icon": {
+            "16": "icons/RetroGameWizard-favicon@16.png",
+            "32": "icons/RetroGameWizard-favicon@32.png",
+            "48": "icons/RetroGameWizard-favicon@48.png",
+            "128": "icons/RetroGameWizard-favicon@128.png"
+        }
     }
 }
