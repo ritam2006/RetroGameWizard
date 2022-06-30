@@ -13,7 +13,3 @@ Instructions will be added once the extension is deployed...
 ## Contributors
 
 - Ritam Chakraborty <ritam.chakraborty@gmail.com>
-
-## Liscense & Copyright
-
-© Ritam Chakraborty
